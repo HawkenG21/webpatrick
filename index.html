@@ -7,13 +7,13 @@
   <title>Patrick | Administración y Finanzas</title>
   <style>
     :root {
-      color-scheme: light;
-      --ink: #1d2b2a;
-      --muted: #64716e;
-      --accent: #28645a;
-      --accent-light: #e8f1ee;
-      --paper: #fff;
-      --background: #f5f7f5;
+      color-scheme: dark;
+      --ink: #f1f2ff;
+      --muted: #a4a8c4;
+      --cyan: #45f3ff;
+      --pink: #ff3cac;
+      --paper: #111321;
+      --background: #080a12;
     }
 
     * {
@@ -22,37 +22,79 @@
 
     body {
       margin: 0;
-      background: var(--background);
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 15% 15%, rgb(255 60 172 / 12%), transparent 32rem),
+        radial-gradient(ellipse at 85% 80%, rgb(69 243 255 / 10%), transparent 34rem),
+        linear-gradient(rgb(69 243 255 / 4%) 1px, transparent 1px),
+        linear-gradient(90deg, rgb(69 243 255 / 4%) 1px, transparent 1px),
+        var(--background);
+      background-size: auto, auto, 40px 40px, 40px 40px, auto;
       color: var(--ink);
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Courier New", Courier, monospace;
       line-height: 1.6;
     }
 
     main {
       width: min(100% - 2rem, 900px);
-      margin: 3rem auto;
+      margin: 0 auto;
+      padding: clamp(2rem, 8vh, 5rem) 0;
     }
 
     .profile {
+      position: relative;
       overflow: hidden;
       background: var(--paper);
-      border: 1px solid #e5eae7;
-      border-radius: 18px;
-      box-shadow: 0 16px 40px rgb(29 43 42 / 7%);
+      border: 1px solid rgb(69 243 255 / 45%);
+      border-radius: 4px;
+      box-shadow: 0 0 35px rgb(69 243 255 / 10%), 8px 8px 0 rgb(255 60 172 / 12%);
+    }
+
+    .profile::before,
+    .profile::after {
+      position: absolute;
+      z-index: 1;
+      width: 24px;
+      height: 24px;
+      content: "";
+      pointer-events: none;
+    }
+
+    .profile::before {
+      top: 0;
+      left: 0;
+      border-top: 2px solid var(--pink);
+      border-left: 2px solid var(--pink);
+    }
+
+    .profile::after {
+      right: 0;
+      bottom: 0;
+      border-right: 2px solid var(--cyan);
+      border-bottom: 2px solid var(--cyan);
     }
 
     .intro {
       padding: clamp(2rem, 7vw, 4.5rem);
-      background: linear-gradient(135deg, #f1f6f3, #fff 75%);
+      background:
+        linear-gradient(115deg, rgb(255 60 172 / 8%), transparent 48%),
+        linear-gradient(135deg, #171a2a, #10121e 75%);
+      border-bottom: 1px solid rgb(69 243 255 / 25%);
     }
 
     .eyebrow {
       margin: 0 0 0.75rem;
-      color: var(--accent);
+      color: var(--cyan);
       font-size: 0.8rem;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      margin-right: 0.65rem;
+      color: var(--pink);
+      content: ">";
     }
 
     h1 {
@@ -60,11 +102,12 @@
       font-size: clamp(2.5rem, 8vw, 4.5rem);
       letter-spacing: -0.06em;
       line-height: 1.05;
+      text-shadow: 3px 0 rgb(255 60 172 / 65%), -3px 0 rgb(69 243 255 / 55%);
     }
 
     .role {
       margin: 1rem 0 0;
-      color: var(--accent);
+      color: var(--pink);
       font-size: clamp(1.15rem, 3vw, 1.5rem);
       font-weight: 600;
     }
@@ -81,12 +124,19 @@
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
       padding: 2.5rem clamp(2rem, 7vw, 4.5rem) 3rem;
-      border-top: 1px solid #edf0ee;
+      background: linear-gradient(180deg, #111321, #0d0f19);
     }
 
     h2 {
       margin: 0 0 0.75rem;
+      color: var(--cyan);
       font-size: 1.15rem;
+    }
+
+    h2::before {
+      margin-right: 0.5rem;
+      color: var(--pink);
+      content: "//";
     }
 
     .details p {
@@ -105,15 +155,17 @@
 
     .skills li {
       padding: 0.45rem 0.75rem;
-      border-radius: 999px;
-      background: var(--accent-light);
-      color: var(--accent);
+      border: 1px solid rgb(69 243 255 / 35%);
+      border-radius: 2px;
+      background: rgb(69 243 255 / 7%);
+      color: var(--cyan);
       font-size: 0.9rem;
       font-weight: 600;
     }
 
     footer {
       padding: 1.25rem 2rem;
+      border-top: 1px solid rgb(255 60 172 / 25%);
       color: var(--muted);
       font-size: 0.9rem;
       text-align: center;
